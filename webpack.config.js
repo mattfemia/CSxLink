@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -11,16 +11,25 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
+    port: 9000,
+    historyApiFallback: true,
     static: {
-      directory: path.resolve(__dirname, 'dist'),
+      // match the output path
+      directory: 'dist',
+      // match the output 'publicPath'
       publicPath: '/',
     },
+    historyApiFallback: true,
     proxy: {
-      '/api/*': {
+      '/api': {
         target: 'http://localhost:3000/',
-        secure: false,
       },
     },
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
   },
   module: {
     rules: [
@@ -33,9 +42,19 @@ module.exports = {
         },
       },
       {
-        test: /.(css|scss)$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
@@ -44,8 +63,8 @@ module.exports = {
       template: './client/index.html',
     }),
   ],
+  devtool: 'eval-source-map',
   resolve: {
-    // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx'],
   },
 };
