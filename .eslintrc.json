@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/test", "**/__tests__"],
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "extends": ["airbnb", "airbnb/hooks"],
+  "parserOptions": { "sourceType": "module" }
+}

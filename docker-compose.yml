@@ -1,0 +1,17 @@
+# docker-Specify the compose version
+version: "3"
+
+services:
+  app:
+  #Build a Dockerfile in the same directory
+    build: .
+  #Give the container a name(Any)
+    container_name: csxlinkster
+    #You can keep the container running.
+    tty: true
+    #Mount the files in the directory to the app directory in the container
+    volumes: 
+      - .:/app
+      # Mount port 9000 to port 9000 on the container
+    ports:
+      - "9000:9000"

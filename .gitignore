@@ -6,3 +6,12 @@ node_modules
 
 # Webpack Builds
 dist/*
+
+# Environment files
+.env
+
+# Test Data
+data/
+
+# AWS Files
+aws/

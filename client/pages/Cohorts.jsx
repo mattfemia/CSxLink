@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Cohorts() {
-
   return (
     <div id="mainContainer">
-      <h1 className='welcome'>COHORTS ROUTE</h1>
+      <div className='welcome'></div>
     </div>
   )
 }

@@ -4,7 +4,7 @@
   "description": "Codesmith resident portfolio and networking application",
   "main": "server/server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production nodemon --delay 500ms server/server.js",
+    "start": "cross-env NODE_ENV=production node --delay 500ms server/server.js & NODE_ENV=production webpack serve --open",
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development nodemon server/server.js --delay 500ms & NODE_ENV=development webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1"

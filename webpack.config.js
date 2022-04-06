@@ -12,24 +12,24 @@ module.exports = {
   },
   devServer: {
     port: 9000,
+    disableHostCheck: true, // set to request's host value
+    compress: true,
     historyApiFallback: true,
     static: {
-      // match the output path
       directory: 'dist',
-      // match the output 'publicPath'
       publicPath: '/',
     },
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000/',
+        target: 'http://0.0.0.0:3000/',
       },
     },
   },
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
-    maxAssetSize: 512000
+    maxAssetSize: 512000,
   },
   module: {
     rules: [
