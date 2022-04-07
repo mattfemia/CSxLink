@@ -12,16 +12,15 @@ module.exports = {
   },
   devServer: {
     port: 9000,
-    disableHostCheck: true, // set to request's host value
+    allowedHosts: 'all',
     compress: true,
     historyApiFallback: true,
     static: {
       directory: 'dist',
       publicPath: '/',
     },
-    historyApiFallback: true,
     proxy: {
-      '/api': {
+      '/api/*': {
         target: 'http://0.0.0.0:3000/',
       },
     },
