@@ -4,7 +4,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
+import { v4 as uuidv4 } from 'uuid';
+
 function Home() {
+  console.log(uuidv4())
   return (
     <div id="mainContainer">
 

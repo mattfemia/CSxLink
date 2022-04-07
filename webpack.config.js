@@ -8,6 +8,7 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
   devServer: {
@@ -63,7 +64,6 @@ module.exports = {
       template: './client/index.html',
     }),
   ],
-  devtool: 'eval-source-map',
   resolve: {
     extensions: ['.js', '.jsx'],
   },

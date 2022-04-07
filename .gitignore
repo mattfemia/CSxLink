@@ -6,6 +6,8 @@ node_modules
 
 # Webpack Builds
 dist/bundle*
+dist/*.woff2
+dist/*.woff
 
 # Environment files
 .env
@@ -15,3 +17,6 @@ data/
 
 # AWS Files
 aws/
+
+# Sensitive SQL
+sql/insertuuid.sql
