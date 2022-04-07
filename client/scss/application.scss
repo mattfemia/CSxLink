@@ -1,6 +1,8 @@
 body {
   font-family:'Segoe UI', sans-serif;
   font-weight: 100;
+  background: linear-gradient(#f5f5f7 var(--global-nav-collective-height), #fff 0%);
+  color:#747474;
 }
 
 /*
@@ -11,7 +13,7 @@ Navigation Bar
   top: 0;
   left: 0;
   width: 100%;
-  background-color: black;
+  background-color: #222;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -23,7 +25,7 @@ Navigation Bar
 .nav-item a {
   display: flex;
   flex-direction: column;
-  color: white;
+  color: #f5f5f7;
   padding: 24px 26px;
   font-size: 1.2rem;
   text-decoration: none;
@@ -66,13 +68,23 @@ MainContainer
 Footer
 */
 .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   position: fixed;
   bottom: 0;
   left: 0;
   padding: 20px;
-  background-color: black;
+  background-color: #d8d8d8;
   width: 100%
 }
 .footer p {
-  color: white;
+  color: #747474;
+  margin: 5px;
+}
+
+.contribute a {
+  text-align: center;
+  color: #747474;
 }

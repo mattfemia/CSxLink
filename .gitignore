@@ -5,7 +5,7 @@ node_modules
 .DS_Store
 
 # Webpack Builds
-dist/
+dist/bundle*
 
 # Environment files
 .env
@@ -15,6 +15,3 @@ data/
 
 # AWS Files
 aws/
-
-# Scratch notes
-notes.js

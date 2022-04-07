@@ -21,19 +21,18 @@ function App() {
   // }
 
   return (
-      <BrowserRouter>
         <ul className="navbar">
           <li className="nav-item">
             <Link to='/'>Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link to='/search'>Search</Link>
           </li>
           <li className="nav-item">
             <Link to='/cohorts'>Cohorts</Link>
           </li>
           <li className="nav-item">
             <Link to='/portfolio'>Portfolio</Link>
-          </li>
-          <li className="nav-item">
-            <Link to='/search'>Search</Link>
           </li>
 
           {/* <div className="nav-item login">
@@ -45,11 +44,10 @@ function App() {
         </ul>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route exact path='/cohorts' element={Cohorts} />
           <Route path='/search' element={<Search />} />
+          <Route exact path='/cohorts' element={<Cohorts />} />
           <Route path='/profile' element={<Profile />} />
         </Routes>
-      </BrowserRouter>
   )
 }
 

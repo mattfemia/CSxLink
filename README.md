@@ -1,6 +1,6 @@
 # CS x Link
 
-[CS x Link](https://csxlink.mattfemia.com/) was created to more easily depict accomplishments and relationships throughout Codesmith residency. The application allows for creating a personal portfolio, searching cohort membership across the organization, and keeping up to date on news surrounding past and present residents.  
+[CS x Link](https://www.csxlink.com/) was created to more easily depict accomplishments and relationships throughout Codesmith residency. The application allows for creating a personal portfolio, searching cohort membership across the organization, and keeping up to date on news surrounding past and present residents.  
   
 This project is open-source and welcomes community contributions, particularly from current and past Codesmith residents. If you're interested in contributing, please review the pull request template below. 
   
@@ -24,7 +24,7 @@ This project is open-source and welcomes community contributions, particularly f
 
 #### Database Setup  
   
-- The application requires a postgresql database to be added into the application. To create the tables required, run the queries in setup.sql [here](https://github.com/mattfemia/CSxNetwork/tree/master/sql). Database environment variables should be stored in an .env file. The .env file should be added to the root of the project directory: csxlink/.env
+- The application requires a postgresql database to be added into the application. To create the tables required, run the queries in setup.sql [here](https://github.com/mattfemia/CSxLink/tree/master/sql). Database environment variables should be stored in an .env file. The .env file should be added to the root of the project directory: csxlink/.env
   
 ## Pull Requests
   

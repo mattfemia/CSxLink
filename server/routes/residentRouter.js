@@ -1,9 +1,10 @@
 const express = require('express');
 const residentController = require('../controllers/residentController');
 const router = express.Router();
+const { v4: uuidv4 } = require('uuid');
 
 router.get('/', residentController.getResidents, (req, res) => {
-  res.json(res.locals.data);
+  return res.json(res.locals.data);
 });
 
 router.post('/', (req, res) => {

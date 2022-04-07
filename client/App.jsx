@@ -33,13 +33,13 @@ function App() {
           <Link to='/'>Home</Link>
         </li>
         <li className="nav-item">
+          <Link to='/search'>Search</Link>
+        </li>
+        <li className="nav-item">
           <Link to='/cohorts'>Cohorts</Link>
         </li>
         <li className="nav-item">
           <Link to='/portfolio'>Portfolio</Link>
-        </li>
-        <li className="nav-item">
-          <Link to='/search'>Search</Link>
         </li>
 
         <div className="nav-item login">

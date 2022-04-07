@@ -6,8 +6,12 @@ router.get('/', cohortController.getCohorts, (req, res) => {
   res.json(res.locals.data);
 });
 
-router.post('/', (req, res) => {
-  // TODO
+router.get('/create', (req, res) => {
+  res.json({});
+});
+
+router.post('/create', (req, res) => {
+  res.redirect('/');
 });
 
 router.patch('/', (req, res) => {
