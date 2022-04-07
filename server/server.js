@@ -5,13 +5,22 @@ require('dotenv').config();
 const app = express();
 const PORT = 3000;
 
-const apiRouter = require('./routes/api');
+// Router imports
+const residentRouter = require('./routes/residentRouter');
+const cohortRouter = require('./routes/cohortRouter');
+const companyRouter = require('./routes/companyRouter');
 
 // Data encoding
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
-
+// API Routers
+app.get('/api', (req, res) => { 
+  return res.status(200); 
+});
+app.use('/api/resident', residentRouter);
+app.use('/api/cohort', cohortRouter);
+app.use('/api/company', companyRouter);
 
 // Handle webpack build files for production environment deployments 
 if (process.env.NODE_ENV === 'production') {
@@ -23,11 +32,8 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.use('/api', apiRouter);
-
 // 404 route handler
 app.use((req, res) => res.status(404).send('The page you\'re looking for doesn\'t exist!'));
 
-app.listen(PORT, () => {
-  console.log('Server running on port ${PORT}')
-});
+// Server listener -- default port is 3000
+app.listen(PORT, () => { console.log('Server running on port ${PORT}') });

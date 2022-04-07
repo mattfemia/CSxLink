@@ -3,3 +3,5 @@ data
 dist/
 aws/
 notes.js
+sql
+README.md

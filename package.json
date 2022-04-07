@@ -1,5 +1,5 @@
 {
-  "name": "csxnetwork",
+  "name": "CSxLink",
   "version": "0.0.1",
   "description": "Codesmith resident portfolio and networking application",
   "main": "server/server.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattfemia/CSxNetwork.git"
+    "url": "git+https://github.com/mattfemia/CSxLink.git"
   },
   "keywords": [
     "codesmith"
@@ -19,9 +19,9 @@
   "author": "Matt Femia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mattfemia/CSxNetwork/issues"
+    "url": "https://github.com/mattfemia/CSxLink/issues"
   },
-  "homepage": "https://github.com/mattfemia/CSxNetwork#readme",
+  "homepage": "https://github.com/mattfemia/CSxLink#readme",
   "dependencies": {
     "dot-env": "^0.0.1",
     "dotenv": "^16.0.0",

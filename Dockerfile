@@ -1,6 +1,7 @@
 FROM node:12.0
 
-LABEL version="1.0"
+# Meta data
+LABEL version="0.0.1"
 LABEL description="CSxLink application"
 LABEL maintainer="Matt Femia mf@mattfemia.com"
 
@@ -24,8 +25,10 @@ COPY . .
 # Initialize the webpack build
 RUN ["npm", "run", "build"]
 
+# Open port 9000
 EXPOSE 9000
 
+# Copy to app dir
 COPY . /app
 
 # Run the start command to launch the client and server (Check package.json)

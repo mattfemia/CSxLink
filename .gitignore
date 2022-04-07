@@ -5,7 +5,7 @@ node_modules
 .DS_Store
 
 # Webpack Builds
-dist/*
+dist/
 
 # Environment files
 .env

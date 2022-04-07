@@ -5,7 +5,7 @@ function Cohorts() {
   const [ residents, setResidents ] = useState([]);
   
   // Get residents
-  fetch('/api/')
+  fetch('/api/resident')
     .then(resData => resData.json())
     .then( (resData) => {
       if (!Array.isArray(resData)) setResidents([]);

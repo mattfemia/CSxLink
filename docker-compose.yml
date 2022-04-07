@@ -6,7 +6,7 @@ services:
   #Build a Dockerfile in the same directory
     build: .
   #Give the container a name(Any)
-    container_name: csxlinkster
+    container_name: csxlink
     #You can keep the container running.
     tty: true
     #Mount the files in the directory to the app directory in the container
