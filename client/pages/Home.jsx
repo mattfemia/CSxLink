@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 import { v4 as uuidv4 } from 'uuid';
 
 function Home() {
-  console.log(uuidv4())
+  // console.log(uuidv4())
   return (
     <div id="mainContainer">
 
@@ -36,6 +36,25 @@ function Home() {
             - Seek out the support of past residents working at your dream company.
           </Typography>
         </Container>
+
+        <Container component="latest" sx={{ mt: 5, mb: 2 }} maxWidth="md">
+          <Typography variant="h5" component="h2" gutterBottom>
+            {'Latest News:'}
+          </Typography>
+          <Typography variant="body1">
+            - New York Cohorts questioning the existence of Will Sentence
+          </Typography>
+          <Typography>
+            - Bernie Green reveals favorite color is NOT green.
+          </Typography>
+          <Typography>
+            - NY31 residents on the verge of receiving large paychecks
+          </Typography>
+          <Typography>
+            - Eric "Eyeballs" Rodgers celebrates birthday
+          </Typography>
+        </Container>
+
         <Box
           component="footer"
           sx={{

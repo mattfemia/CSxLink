@@ -6,7 +6,7 @@ function Login() {
     <div id='mainContainer'>
       <h1 className='welcome'>USER LOGIN</h1>
     </div>
-  )
+  );
 }
 
 export default Login;

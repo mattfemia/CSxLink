@@ -14,20 +14,20 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState('Matt');
   
   const renderUserState = () => {
     // Check on-load if user session in session storage
     // TODO
 
     if (currentUser) {
-      return ( <Link to='/profile'>{currentUser}</Link>)
+      return ( <Link to='/portfolio'>{currentUser}</Link>)
     }
     return ( <Link to='/login'>Login</Link>)
   }
 
   return (
-    <div>
+    <div id="bodyContainer">
       <ul className="navbar">
         <li className="nav-item">
           <Link to='/'>Home</Link>

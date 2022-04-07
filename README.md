@@ -24,7 +24,7 @@ This project is open-source and welcomes community contributions, particularly f
 
 #### Database Setup  
   
-- The application requires a postgresql database to be added into the application. To create the tables required, run the queries in setup.sql [here](https://github.com/mattfemia/CSxLink/tree/master/sql). Database environment variables should be stored in an .env file. The .env file should be added to the root of the project directory: csxlink/.env
+- The application requires a postgresql database to be added into the application. To create the tables required, run the queries in setup.sql [here](https://github.com/mattfemia/CSxLink/tree/master/sql). Database credentials should be stored in an .env file. The .env file should be added to the root of the project directory: csxlink/.env
   
 ## Pull Requests
   

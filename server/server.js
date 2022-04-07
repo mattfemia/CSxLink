@@ -9,6 +9,7 @@ const PORT = 3000;
 const residentRouter = require('./routes/residentRouter');
 const cohortRouter = require('./routes/cohortRouter');
 const companyRouter = require('./routes/companyRouter');
+const portfolioRouter = require('./routes/portfolioRouter');
 
 // Data encoding
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true}));
 app.get('/api', (req, res) => { 
   return res.status(200); 
 });
+app.use('/api/portfolio', portfolioRouter);
 app.use('/api/resident', residentRouter);
 app.use('/api/cohort', cohortRouter);
 app.use('/api/company', companyRouter);

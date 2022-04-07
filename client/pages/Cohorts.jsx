@@ -39,28 +39,24 @@ function Cohorts() {
   return (
     <div id="mainContainer">
       <div>
-        <h2>COHORTS</h2>
-        <ul>
-          <li>
-            <Link to={`${url}/create`}>Create</Link>
-          </li>
-          <li>
-            <Link to={`${url}/update`}>Update</Link>
-          </li>
-        </ul>
+        <div style={{ padding: '10px '}}>
+          <Link className="cohortLink" to={`${url}`}>View</Link>
+          <Link className="cohortLink" to={`${url}/create`}>Create</Link>
+          <Link className="cohortLink" to={`${url}/update`}>Update</Link>
+        </div>
+
 
         <Switch>
           <Route exact path={path}>
-
-            <h1 className="welcome">view PAGE</h1>
+            <h1 className="welcome">VIEW COHORTS</h1>
             {cohorts}
           </Route>
           <Route path={`${path}/create`}>
-            <h1 className="welcome">create PAGE</h1>
+            <h1 className="welcome">CREATE COHORT</h1>
             <CohortCreatorModal />
           </Route>
           <Route path={`${path}/update`}>
-            <h1 className="welcome">update PAGE</h1>
+            <h1 className="welcome">UPDATE COHORT</h1>
           </Route>
         </Switch>
       </div>

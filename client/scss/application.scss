@@ -5,6 +5,10 @@ body {
   color:#747474;
 }
 
+#bodyContainer {
+  margin-top: 75px;
+}
+
 /*
 Navigation Bar
 */
@@ -48,13 +52,12 @@ Navigation Bar
 MainContainer
 */
 #mainContainer {
-  display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   min-height: 65vh;
 }
 #mainContainer h1 {
-  margin-bottom: 100px;
   padding: 30px 10px;
   border: 0.5px gray solid;
 }
@@ -62,7 +65,6 @@ MainContainer
 .welcome {
   text-align: center;
 }
-
 
 /*
 Footer
@@ -87,4 +89,15 @@ Footer
 .contribute a {
   text-align: center;
   color: #747474;
+}
+
+
+.cohortLink {
+  padding: 20px;
+  color:#222;
+  text-align: center;
+}
+
+.cohortLink:hover {
+  font-weight: 700;
 }
