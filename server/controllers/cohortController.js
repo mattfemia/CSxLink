@@ -4,7 +4,14 @@ const cohortController = {};
 
 cohortController.getCohorts = async (req, res, next) => {
   try {
-    const query = `SELECT * FROM cohorts`;
+    const query = `
+    SELECT COUNT(r.resident_id) AS membership, c.cohort, c.number, c.start_date, c.end_date
+    FROM residents r
+    INNER JOIN cohorts c
+    ON r.program_id=c.program_id
+    GROUP BY r.program_id, r.resident_id, c.program_id
+    ORDER BY c.number ASC;
+    `;
     const { rows } = await db.query(query, null);
     res.locals.data = rows;
   } catch (err) {

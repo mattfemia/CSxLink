@@ -14,7 +14,6 @@ module.exports = {
   devServer: {
     port: 9000,
     allowedHosts: 'all',
-    compress: true,
     historyApiFallback: true,
     static: {
       directory: 'dist',
@@ -22,7 +21,7 @@ module.exports = {
     },
     proxy: {
       '/api/*': {
-        target: 'http://0.0.0.0:3000/',
+        target: process.env.SERVER_PROXY,
       },
     },
   },

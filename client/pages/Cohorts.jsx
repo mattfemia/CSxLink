@@ -17,25 +17,29 @@ function Cohorts() {
         if (isRequestSubscribed) {
           if (!Array.isArray(resData)) setCohorts([]);
           console.log('data: ', resData)
-          const cohortsArray = resData.map((el, ind) => (
-            <CohortInfo
-              key={`key${ind}`}
-              cohort={el.cohort}
-              number={el.number}
-              start_date={el.start_date}
-              end_date={el.end_date}
-            />
-          ));
-          return setCohorts(cohortsArray);
+          if (resData){
+            const cohortsArray = resData.map((el, ind) => (
+              <CohortInfo
+                key={`key${ind}`}
+                cohort={el.cohort}
+                number={el.number}
+                membership={el.membership}
+                start_date={el.start_date}
+                end_date={el.end_date}
+              />
+            ));
+            return setCohorts(cohortsArray);
+          }
         }
       })
       .catch( (err) => setCohorts([err]));
 
     return () => {
       isRequestSubscribed = false;
-    }
+    };
   }, []);
   let { path, url } = useRouteMatch();
+
   return (
     <div id="mainContainer">
       <div>
@@ -44,7 +48,6 @@ function Cohorts() {
           <Link className="cohortLink" to={`${url}/create`}>Create</Link>
           <Link className="cohortLink" to={`${url}/update`}>Update</Link>
         </div>
-
 
         <Switch>
           <Route exact path={path}>

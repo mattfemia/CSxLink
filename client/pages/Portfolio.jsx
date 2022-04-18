@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 
-import Button from '@mui/material/Button';
 import PortfolioInfo from '../components/Portfolio/PortfolioInfo';
+import PortfolioUpdate from '../components/Portfolio/PortfolioUpdate';
 
 function Portfolio() {
   const [ profileInfo, setProfileInfo ] = useState();
 
-  // GET cohorts
+  // GET current user's portfolio
   useEffect(() => {
     let isRequestSubscribed = true;
     fetch('/api/portfolio')
@@ -15,7 +15,6 @@ function Portfolio() {
       .then( (resData) => {
         if (isRequestSubscribed) {
           if (!Array.isArray(resData)) setProfileInfo([]);
-          console.log('data: ', resData)
           const portfolioList = resData.map((el, ind) => (
             <PortfolioInfo
               key={`key${ind}`}
@@ -28,11 +27,12 @@ function Portfolio() {
               snake_game={el.snake_game}
               chrome_extension={el.chrome_extension}
               solo={el.solo}
-              iteration={el.iteration || "No iteration project yet!"}
-              osp_repo={el.osp_repo || "No OSP repo yet!"}
-              osp_website={el.osp_website || "No OSP website yet!"}
-              osp_article={el.osp_article || "No OSP Article yet!"}
-              reinforcement={el.reinforcement || "No Reinforcement project yet!"}
+              scratch={el.scratch}
+              iteration={el.iteration}
+              osp_repo={el.osp_repo}
+              osp_website={el.osp_website}
+              osp_article={el.osp_article}
+              reinforcement={el.reinforcement}
             />
           ));
           return setProfileInfo(portfolioList);
@@ -44,47 +44,31 @@ function Portfolio() {
       isRequestSubscribed = false;
     }
   }, []);
+  let { path, url } = useRouteMatch();
 
   return (
     <div>
       <div id='mainContainer'>
-        <h1 className='welcome'>RESIDENT PORTFOLIO</h1>
-        {profileInfo}
+
+      <div style={{ padding: '10px '}}>
+        <Link className="cohortLink" to={`${url}`}>View</Link>
+        <Link className="cohortLink" to={`${url}/update`}>Update</Link>
+      </div>
+
+        <Switch>
+          <Route exact path={path}>
+            <h1 className="welcome">PORTFOLIO</h1>
+            {profileInfo}
+          </Route>
+          <Route path={`${path}/update`}>
+            <h1 className="welcome">Update</h1>
+            <PortfolioUpdate />
+          </Route>
+        </Switch>
+
       </div>
     </div>
   );
 }
-
-// const [ cohorts, setCohorts ] = useState([]);
-  
-// // GET cohorts
-// useEffect(() => {
-//   let isRequestSubscribed = true;
-//   fetch('/api/cohort')
-//     .then( (resData) => resData.json())
-//     .then( (resData) => {
-//       if (isRequestSubscribed) {
-//         if (!Array.isArray(resData)) setCohorts([]);
-//         console.log('data: ', resData)
-//         const cohortsArray = resData.map((el, ind) => (
-//           <CohortInfo
-//             key={`key${ind}`}
-//             cohort={el.cohort}
-//             number={el.number}
-//             start_date={el.start_date}
-//             end_date={el.end_date}
-//           />
-//         ));
-//         return setCohorts(cohortsArray);
-//       }
-//     })
-//     .catch( (err) => setCohorts([err]));
-
-//   return () => {
-//     isRequestSubscribed = false;
-//   }
-// }, []);
-
-
 
 export default Portfolio;

@@ -11,6 +11,7 @@ CREATE TABLE public.residents
     snake_game character varying(1024),
     chrome_extension character varying(1024),
     solo character varying(1024),
+    scratch character varying(1024),
     iteration character varying(1024),
     osp_repo character varying(1024),
     osp_website character varying(1024),

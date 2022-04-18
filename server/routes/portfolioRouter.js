@@ -11,8 +11,8 @@ router.post('/', (req, res) => {
   // TODO
 });
 
-router.patch('/', (req, res) => {
-  // TODO
+router.put('/', portfolioController.updatePortfolio, (req, res) => {
+  res.status(200);
 });
 
 router.delete('/', (req, res) => {

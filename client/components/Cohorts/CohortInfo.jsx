@@ -12,11 +12,4 @@ function CohortInfo(props) {
   );
 }
 
-/*
-  - Cohort + Number
-  - start_date
-  - end_date
-  - membership
-*/
-
 export default CohortInfo;
