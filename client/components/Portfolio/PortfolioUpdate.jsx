@@ -82,7 +82,7 @@ function PortfolioUpdate() {
         ospArticle,
         reinforcement,
       };
-      fetch('/api/portfolio/', {
+      fetch('/api/portfolio', {
         method: 'PUT',
         body: new URLSearchParams(reqBody),
       })

@@ -21,14 +21,19 @@ cohortController.getCohorts = async (req, res, next) => {
 };
 
 cohortController.getCohortMembers = async (req, res, next) => {
+  const { id } = req.params;
+  const [ cohort, number ] = id.split('-');
+
   try {
     const query = `
     SELECT r.*, c.cohort, c.number
     FROM residents r
     INNER JOIN cohorts c
-    ON r.program_id=c.program_id;
+    ON r.program_id=c.program_id
+    WHERE c.cohort=$1 AND c.number=$2;
     `;
-    const { rows } = await db.query(query, null);
+    const params = [cohort, number];
+    const { rows } = await db.query(query, params);
     res.locals.data = rows;
   } catch (err) {
     return next(err);

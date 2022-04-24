@@ -24,11 +24,10 @@ export default function CohortCreatorModal() {
         Open form dialog
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle></DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
+
           </DialogContentText>
           <TextField
             autoFocus
@@ -41,8 +40,8 @@ export default function CohortCreatorModal() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}></Button>
+          <Button onClick={handleClose}></Button>
         </DialogActions>
       </Dialog>
     </div>

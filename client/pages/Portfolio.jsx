@@ -10,10 +10,15 @@ function Portfolio() {
   // GET current user's portfolio
   useEffect(() => {
     let isRequestSubscribed = true;
-    fetch('/api/portfolio')
-      .then( (resData) => resData.json())
+    console.log('Fetch')
+    fetch('/api/portfolio', {
+      mode: 'no-cors',
+    })
+    .then( (resData) => resData.json())
       .then( (resData) => {
         if (isRequestSubscribed) {
+          
+          console.log('Processing fetch data')
           if (!Array.isArray(resData)) setProfileInfo([]);
           const portfolioList = resData.map((el, ind) => (
             <PortfolioInfo
@@ -57,7 +62,7 @@ function Portfolio() {
 
         <Switch>
           <Route exact path={path}>
-            <h1 className="welcome">PORTFOLIO</h1>
+            {/* <h1 className="welcome">PORTFOLIO</h1> */}
             {profileInfo}
           </Route>
           <Route path={`${path}/update`}>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Route, Link, Switch } from 'react-router-dom';
-import Container from "./components/MainContainer";
+import { Route, Link, Switch, useRouteMatch } from 'react-router-dom';
 import Footer from "./components/Footer"
 
 /*
@@ -8,10 +7,12 @@ Pages
 */
 import Home from "./pages/Home";
 import Cohorts from "./pages/Cohorts";
+import CohortMembers from "./components/Cohorts/CohortMembers";
 import Portfolio from "./pages/Portfolio";
 import Search from "./pages/Search";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Resident from "./pages/Resident";
 
 function App() {
   const [currentUser, setCurrentUser] = useState('Matt');
@@ -21,10 +22,11 @@ function App() {
     // TODO
 
     if (currentUser) {
-      return ( <Link to='/portfolio'>{currentUser}</Link>)
+      return (<Link to='/portfolio'>{currentUser}</Link>);
     }
-    return ( <Link to='/login'>Login</Link>)
+    return (<Link to='/login'>Login</Link>);
   }
+  const { path, url } = useRouteMatch();
 
   return (
     <div id="bodyContainer">
@@ -53,7 +55,14 @@ function App() {
           <Home />
         </Route>
         <Route path='/cohorts'>
-          <Cohorts />
+          <Switch>
+            <Route exact path={`/cohorts`}>
+              <Cohorts />
+            </Route>
+            <Route path={`/cohorts/:id`}>
+              <CohortMembers />
+            </Route>
+          </Switch>
         </Route>
         <Route path='/search'>
           <Search />
@@ -66,6 +75,9 @@ function App() {
         </Route>
         <Route path='/register'>
           <Register />
+        </Route>
+        <Route path='/residents/:id'>
+          <Resident />
         </Route>
       </Switch>
       <Footer />

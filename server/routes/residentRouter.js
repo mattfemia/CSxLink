@@ -3,7 +3,11 @@ const residentController = require('../controllers/residentController');
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
 
-router.get('/', residentController.getResidents, (req, res) => {
+router.get('/', residentController.getAllResidents, (req, res) => {
+  return res.json(res.locals.data);
+});
+
+router.get('/:id', residentController.getResident, (req, res) => {
   return res.json(res.locals.data);
 });
 

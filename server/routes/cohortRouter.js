@@ -6,6 +6,10 @@ router.get('/', cohortController.getCohorts, (req, res) => {
   res.json(res.locals.data);
 });
 
+router.get('/:id', cohortController.getCohortMembers, (req, res) => {
+  res.json(res.locals.data);
+});
+
 router.get('/create', (req, res) => {
   res.json({});
 });

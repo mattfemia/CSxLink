@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
-import CohortInfo from '../components/Cohorts/CohortInfo';
+import CohortDetails from '../components/Cohorts/CohortDetails';
 import CohortCreatorModal from '../components/Cohorts/CohortCreatorModal';
+import CohortMembers from '../components/Cohorts/CohortMembers';
 
 import Button from '@mui/material/Button';
 
@@ -11,21 +12,23 @@ function Cohorts() {
   // GET cohorts
   useEffect(() => {
     let isRequestSubscribed = true;
-    fetch('/api/cohort')
-      .then( (resData) => resData.json())
-      .then( (resData) => {
+    fetch('/api/cohort', {
+      mode: 'no-cors',
+    })
+      .then((resData) => resData.json())
+      .then((resData) => {
         if (isRequestSubscribed) {
           if (!Array.isArray(resData)) setCohorts([]);
-          console.log('data: ', resData)
-          if (resData){
+
+          if (resData) {
             const cohortsArray = resData.map((el, ind) => (
-              <CohortInfo
+              <CohortDetails
                 key={`key${ind}`}
                 cohort={el.cohort}
                 number={el.number}
                 membership={el.membership}
-                start_date={el.start_date}
-                end_date={el.end_date}
+                start_date={new Date(el.start_date).toLocaleDateString('en-US')}
+                end_date={new Date(el.end_date).toLocaleDateString('en-US')}
               />
             ));
             return setCohorts(cohortsArray);
@@ -38,12 +41,12 @@ function Cohorts() {
       isRequestSubscribed = false;
     };
   }, []);
-  let { path, url } = useRouteMatch();
+  const { path, url } = useRouteMatch();
 
   return (
     <div id="mainContainer">
       <div>
-        <div style={{ padding: '10px '}}>
+        <div style={{ padding: '10px' }}>
           <Link className="cohortLink" to={`${url}`}>View</Link>
           <Link className="cohortLink" to={`${url}/create`}>Create</Link>
           <Link className="cohortLink" to={`${url}/update`}>Update</Link>

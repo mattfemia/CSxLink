@@ -23,6 +23,9 @@ module.exports = {
       '/api/*': {
         target: process.env.SERVER_PROXY,
       },
+      '/api/portfolio/*': {
+        target: process.env.SERVER_PROXY,
+      },
     },
   },
   performance: {
