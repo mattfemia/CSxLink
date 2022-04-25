@@ -61,7 +61,6 @@ portfolioController.updatePortfolio = async (req, res, next) => {
       reinforcement,
     ];
     const { rows } = await db.query(query, params);
-    console.log('Updated profile server side.')
   } catch (err) {
     return next(err);
   }

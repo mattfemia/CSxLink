@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3000;
 
 // Router imports
+const authRouter = require('./routes/authRouter');
 const residentRouter = require('./routes/residentRouter');
 const cohortRouter = require('./routes/cohortRouter');
 const companyRouter = require('./routes/companyRouter');
@@ -21,6 +22,7 @@ app.use(cors());
 app.get('/api', (req, res) => { 
   return res.status(200); 
 });
+app.use('/api/auth', authRouter);
 app.use('/api/portfolio', portfolioRouter);
 app.use('/api/resident', residentRouter);
 app.use('/api/cohort', cohortRouter);

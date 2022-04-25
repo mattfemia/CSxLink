@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production SERVER_PROXY=https://www.csxlink.com/ node server/server.js & NODE_ENV=production SERVER_PROXY=https://www.csxlink.com/ webpack serve",
     "build": "NODE_ENV=production SERVER_PROXY=http://www.csxlink.com/ webpack",
-    "dev": "NODE_ENV=development SERVER_PROXY=http://0.0.0.0:3000 nodemon server/server.js --delay 500ms & NODE_ENV=development SERVER_PROXY=http://0.0.0.0:3000/ webpack serve --open",
+    "dev": "NODE_ENV=development SERVER_PROXY=http://0.0.0.0:3000 node server/server.js --delay 500ms & NODE_ENV=development SERVER_PROXY=http://0.0.0.0:3000/ webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.12.3",
+    "node-fetch": "^2.6.7",
     "pg": "^8.7.3",
     "prop-types": "^15.6.1",
     "react": "18.0.0",
