@@ -5,7 +5,7 @@ import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import Cohorts from "./pages/Cohorts";
 import Profile from "./pages/Profile";
-import Search from "./pages/Search";
+import Network from "./pages/Network";
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -28,7 +28,7 @@ function App() {
           <Link to='/'>Home</Link>
         </li>
         <li className="nav-item">
-          <Link to='/search'>Search</Link>
+          <Link to='/network'>Network</Link>
         </li>
         <li className="nav-item">
           <Link to='/cohorts'>Cohorts</Link>
@@ -46,7 +46,7 @@ function App() {
       </ul>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/search' element={<Search />} />
+        <Route path='/network' element={<Network />} />
         <Route exact path='/cohorts' element={<Cohorts />} />
         <Route path='/profile' element={<Profile />} />
       </Routes>

@@ -46,7 +46,6 @@ authController.getAccountInfo = async (req, res, next) => {
       },
     });
     const profileInfo = await profileInfoJSON.json();
-    console.log('Profile Info: ', profileInfo);
     res.locals.profile = profileInfo;
     // console.log('res.locals in getProfile', res.locals.profile)
     return next();

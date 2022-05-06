@@ -1,6 +1,7 @@
 const express = require('express');
 const authController = require('../controllers/authController');
 const residentController = require('../controllers/residentController');
+const cookieController = require('../controllers/cookieController');
 
 const router = express.Router();
 
@@ -21,12 +22,11 @@ router.get('/github/auth', async (req, res) => {
 router.get(
   '/github/callback',
   authController.getToken,
-  // cookieController.saveToken,
+  cookieController.saveToken,
   authController.getAccountInfo,
   residentController.findResident,
   residentController.createResident,
-  // cookieController.saveUserSession,
-  // authController.getLanguages,
+  cookieController.saveUserSession,
   // signupController.storeUserInDb,
   async (req, res) => {
     let HOST;

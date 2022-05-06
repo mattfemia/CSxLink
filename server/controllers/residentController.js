@@ -1,5 +1,5 @@
 const db = require('../models/csxlinkModels');
-import { v4 as uuidv4 } from 'uuid';
+const { v4: uuidv4 } = require('uuid');
 
 const residentController = {};
 
@@ -56,15 +56,26 @@ residentController.createResident = async (req, res, next) => {
   if (res.locals.userExists) {
     return res.next();
   }
-  const { login, id, node_id, name, location, email} = res.locals.profileInfo;
+  const { login, id, node_id, name, location, email} = res.locals.profile;
   const residentId = uuidv4();
+
   try {
     const query = `
     INSERT INTO residents
-    (resident_id, github_id, github_node_id, email, github, firstname, location)
-    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    (resident_id, github_id, github_node_id, email, github, firstname, location, program_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, 'f52fbd29-0420-4347-b2e1-57760c020b72')
     `;
-    const params = [residentId, id, node_id, email, login, name, location];
+    /* program_id=f52fbd29-0420-4347-b2e1-57760c020b72 is a placeholder cohort */ 
+    
+    const params = [
+      residentId || '',
+      id || '',
+      node_id,
+      email || '',
+      `https://www.github.com/${login}` || '',
+      name || login,
+      location || '',
+    ];
     const { rows } = await db.query(query, params);
     res.locals.signup = true;
   } catch (err) {

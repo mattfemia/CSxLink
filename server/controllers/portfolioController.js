@@ -3,15 +3,17 @@ const db = require('../models/csxlinkModels');
 const portfolioController = {};
 
 portfolioController.getPortfolio = async(req, res, next) => {
-  // const { id } = req.body;
+  const { user_session } = req.cookies;
   try {
     const query = `
       SELECT r.scratch, r.*,  c.cohort AS cohortProgram, c.number AS cohortNumber
       FROM residents r
       INNER JOIN cohorts c
-      ON r.program_id=c.program_id WHERE resident_id='22f5130c-f057-428c-b93c-ff82b9974bfe'
+      ON r.program_id=c.program_id 
+      WHERE github_node_id=$1
     `;
-    const { rows } = await db.query(query, null);
+    const params = [user_session]
+    const { rows } = await db.query(query, params);
     res.locals.data = rows;
   } catch (err) {
     return next(err);
@@ -60,7 +62,14 @@ portfolioController.updatePortfolio = async (req, res, next) => {
       ospArticle,
       reinforcement,
     ];
-    const { rows } = await db.query(query, params);
+    await db.query(query, params);
+
+    // TODO:
+    // Check user's cohort in session data
+    // If changed:
+      // lookup program_id of new cohort
+      // update program_id for user in residents table on user's uuid
+
   } catch (err) {
     return next(err);
   }
