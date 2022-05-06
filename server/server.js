@@ -1,12 +1,14 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const app = express();
 const PORT = 3000;
 
 // Router imports
+const authRouter = require('./routes/authRouter');
 const residentRouter = require('./routes/residentRouter');
 const cohortRouter = require('./routes/cohortRouter');
 const companyRouter = require('./routes/companyRouter');
@@ -16,11 +18,13 @@ const portfolioRouter = require('./routes/portfolioRouter');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
 
 // API Routers
 app.get('/api', (req, res) => { 
   return res.status(200); 
 });
+app.use('/api/auth', authRouter);
 app.use('/api/portfolio', portfolioRouter);
 app.use('/api/resident', residentRouter);
 app.use('/api/cohort', cohortRouter);

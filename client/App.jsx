@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Cohorts from "./pages/Cohorts";
 import CohortMembers from "./components/Cohorts/CohortMembers";
 import Portfolio from "./pages/Portfolio";
-import Search from "./pages/Search";
+import Network from "./pages/Network";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Resident from "./pages/Resident";
@@ -35,7 +35,7 @@ function App() {
           <Link to='/'>Home</Link>
         </li>
         <li className="nav-item">
-          <Link to='/search'>Search</Link>
+          <Link to='/network'>Network</Link>
         </li>
         <li className="nav-item">
           <Link to='/cohorts'>Cohorts</Link>
@@ -64,8 +64,8 @@ function App() {
             </Route>
           </Switch>
         </Route>
-        <Route path='/search'>
-          <Search />
+        <Route path='/network'>
+          <Network />
         </Route>
         <Route path='/portfolio'>
           <Portfolio />

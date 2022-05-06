@@ -5,7 +5,7 @@ import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import Cohorts from "./pages/Cohorts";
 import Profile from "./pages/Profile";
-import Search from "./pages/Search";
+import Network from "./pages/Network";
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -21,33 +21,37 @@ function App() {
   // }
 
   return (
-        <ul className="navbar">
-          <li className="nav-item">
-            <Link to='/'>Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link to='/search'>Search</Link>
-          </li>
-          <li className="nav-item">
-            <Link to='/cohorts'>Cohorts</Link>
-          </li>
-          <li className="nav-item">
-            <Link to='/portfolio'>Portfolio</Link>
-          </li>
+    <div>
 
-          {/* <div className="nav-item login">
-            <li className="nav-item">
-              Login
-            </li>
-          </div> */}
+      <ul className="navbar">
+        <li className="nav-item">
+          <Link to='/'>Home</Link>
+        </li>
+        <li className="nav-item">
+          <Link to='/network'>Network</Link>
+        </li>
+        <li className="nav-item">
+          <Link to='/cohorts'>Cohorts</Link>
+        </li>
+        <li className="nav-item">
+          <Link to='/portfolio'>Portfolio</Link>
+        </li>
 
-        </ul>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/search' element={<Search />} />
-          <Route exact path='/cohorts' element={<Cohorts />} />
-          <Route path='/profile' element={<Profile />} />
-        </Routes>
+        {/* <div className="nav-item login">
+          <li className="nav-item">
+            Login
+          </li>
+        </div> */}
+
+      </ul>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/network' element={<Network />} />
+        <Route exact path='/cohorts' element={<Cohorts />} />
+        <Route path='/profile' element={<Profile />} />
+      </Routes>
+  
+    </div>
   )
 }
 
