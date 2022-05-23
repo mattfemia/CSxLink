@@ -9,7 +9,6 @@ function CohortMembers() {
   useEffect(() => {
     let isRequestSubscribed = true;
     fetch(`/api/cohort/${id}`, {
-      mode: 'no-cors',
     })
       .then((resData) => resData.json())
       .then((resData) => {

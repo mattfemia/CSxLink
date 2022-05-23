@@ -8,25 +8,20 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
     filename: 'bundle.js',
   },
   devServer: {
-    port: 9000,
-    allowedHosts: 'all',
+    port: 8080,
     historyApiFallback: true,
     static: {
-      directory: 'dist',
+      directory: path.resolve(__dirname, '/dist'),
       publicPath: '/',
     },
+    compress: true,
+    headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
-      '/api/*': {
-        target: process.env.SERVER_PROXY,
-      },
-      '/api/portfolio/*': {
-        target: process.env.SERVER_PROXY,
-      },
-    },
+      '/api/*': 'http://localhost:3000'
+    }
   },
   performance: {
     hints: false,

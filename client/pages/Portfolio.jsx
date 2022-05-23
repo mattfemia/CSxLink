@@ -12,7 +12,6 @@ function Portfolio() {
     let isRequestSubscribed = true;
     console.log('Fetch')
     fetch('/api/portfolio', {
-      mode: 'no-cors',
     })
     .then( (resData) => resData.json())
       .then( (resData) => {

@@ -83,6 +83,9 @@ function PortfolioUpdate() {
         reinforcement,
       };
       fetch('/api/portfolio', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
         method: 'PUT',
         body: new URLSearchParams(reqBody),
       })

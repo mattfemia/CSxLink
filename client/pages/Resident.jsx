@@ -19,7 +19,6 @@ function Resident() {
       );
     } else {
       fetch(`/api/resident/${id}`, {
-        mode: 'no-cors',
       })
       .then((resData) => resData.json())
       .then((resData) => {

@@ -5,9 +5,11 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production SERVER_PROXY=https://www.csxlink.com/ node server/server.js & NODE_ENV=production SERVER_PROXY=https://www.csxlink.com/ webpack serve",
-    "build": "NODE_ENV=production SERVER_PROXY=http://www.csxlink.com/ webpack",
-    "dev": "NODE_ENV=development SERVER_PROXY=http://0.0.0.0:3000 nodemon server/server.js --delay 500ms & NODE_ENV=development SERVER_PROXY=http://0.0.0.0:3000/ webpack serve --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-dev": "NODE_ENV=development webpack",
+    "build-prod": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development webpack-dev-server --open & nodemon ./dist/server/server.js",
+    "docker": "NODE_ENV=production SERVER_PROXY=http://www.csxlink.com/ node ./server/server.js",
+    "zip": "git archive -v -o myMM.zip --format=zip HEAD"
   },
   "repository": {
     "type": "git",
