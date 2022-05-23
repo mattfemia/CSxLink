@@ -8,9 +8,9 @@
     "build-dev": "NODE_ENV=development webpack",
     "build-prod": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack-dev-server --open & nodemon ./dist/server/server.js",
-    "docker": "NODE_ENV=production SERVER_PROXY=http://www.csxlink.com/ node ./server/server.js",
-    "zip": "git archive -v -o csxlink.zip --format=zip HEAD",
-    "test": "jest --verbose"
+    "docker": "NODE_ENV=production node ./server/server.js",
+    "zip": "git archive -v -o csxnetwork.zip --format=zip HEAD",
+    "test": "jest --verbose --forceExit"
   },
   "jest": {
     "globalSetup": "./jest.setup.js",

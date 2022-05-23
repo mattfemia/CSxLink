@@ -1,7 +1,8 @@
-node_modules
 data
-dist/
 aws/
 notes.js
 sql
 README.md
+eslintrc.json
+.gitattributes
+.gitignore
