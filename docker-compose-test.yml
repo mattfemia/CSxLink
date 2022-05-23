@@ -1,13 +1,14 @@
 version: "3"
 services:
-  dev:
+  test:
     image: "545006002224.dkr.ecr.us-east-2.amazonaws.com/csxnetwork:latest"
-    container_name: "csxnetwork-production"
+    container_name: "csxnetwork-test"
     ports: 
-      - "8080:8080"
-    volumes: 
+      - "3000:3000"
+    volumes:
       - .:/usr/src/app
       - node_modules:/usr/src/app/node_modules
-    command: npm run dev
+    command: npm run test
 volumes:
   node_modules: {}
+  test-db-volume: {}

@@ -1,0 +1,10 @@
+{
+  "AWSEBDockerrunVersion": "1",
+      "Image": {
+          "Name": "545006002224.dkr.ecr.us-east-2.amazonaws.com/csxnetwork:<VERSION>",
+          "Update": "true"
+      },
+      "Ports": [{
+          "ContainerPort": "3000"
+      }]
+}

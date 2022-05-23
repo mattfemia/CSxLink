@@ -9,6 +9,6 @@ LABEL maintainer="Matt Femia mf@mattfemia.com"
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN npm install
-RUN npm run build-prod
+RUN npm run build-dev
 EXPOSE 3000
 CMD ["npm", "run", "docker"]

@@ -9,7 +9,16 @@
     "build-prod": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack-dev-server --open & nodemon ./dist/server/server.js",
     "docker": "NODE_ENV=production SERVER_PROXY=http://www.csxlink.com/ node ./server/server.js",
-    "zip": "git archive -v -o myMM.zip --format=zip HEAD"
+    "zip": "git archive -v -o csxlink.zip --format=zip HEAD",
+    "test": "jest --verbose"
+  },
+  "jest": {
+    "globalSetup": "./jest.setup.js",
+    "globalTeardown": "./jest.teardown.js",
+    "testEnvironment": "jest-environment-jsdom",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ]
   },
   "repository": {
     "type": "git",
@@ -29,17 +38,24 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "5.6.1",
     "@mui/material": "5.6.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.2.0",
     "async": ">=2.6.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.12.3",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "node-fetch": "^2.6.7",
     "pg": "^8.7.3",
     "prop-types": "^15.6.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-router-dom": "5.1.0",
+    "regenerator-runtime": "^0.13.9",
+    "supertest": "^6.2.3",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
